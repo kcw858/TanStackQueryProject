@@ -1,5 +1,5 @@
 pipeline {
-  
+
     agent any
 
     environment {
@@ -17,7 +17,7 @@ pipeline {
 		
 		stage("Create .env") {
 			steps {
-				withCredentails([
+				withCredentials([
 					string(
 						credentailsId: 'oracle_url',
 						variable: 'DB_URL'
