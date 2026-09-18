@@ -19,25 +19,25 @@ pipeline {
 			steps {
 				withCredentials([
 					string(
-						credentailsId: 'oracle_url',
+						credentialsId: 'oracle_url',
 						variable: 'DB_URL'
 					),
 					string(
-						credentailsId: 'oracle_uname',
+						credentialsId: 'oracle_name',
 						variable: 'DB_USERNAME'
 					),
 					string(
-						credentailsId: 'oracle_pwd',
+						credentialsId: 'oracle_pwd',
 						variable: 'DB_PASSWORD'
 					)
 				]){
 					sh '''
-						echo "SPRING_PROFILES_ACTIVE=prod" > .env
-						echo "LOCAL_DB_URL=${DB_URL}" >> .env
-						echo "DB_USERNAME=${DB_USERNAME}" >> .env
-						echo "DB_PASSWORD=${DB_PASSWORD}" >> .env
-						
-						chmod 600 .env
+					    echo "SPRING_PROFILES_ACTIVE=prod" > .env
+					    echo "LOCAL_DB_URL=${DB_URL}" >> .env
+					    echo "DB_USERNAME=${DB_USERNAME}" >> .env
+					    echo "DB_PASSWORD=${DB_PASSWORD}" >> .env
+					    
+					    chmod 600 .env
 					   '''
 				}
 			}
