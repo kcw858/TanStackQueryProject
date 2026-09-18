@@ -67,7 +67,7 @@ pipeline {
 		
 		            cp docker-compose.yml ${APP_DIR}/docker-compose.yml
 		            cp .env ${APP_DIR}/.env
-		            cp nginx/default.conf ${APP_DIR}/nginx/default.conf
+		            cp nginx.conf ${APP_DIR}/nginx/default.conf
 		
 		            chmod 600 ${APP_DIR}/.env
 		
