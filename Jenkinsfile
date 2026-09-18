@@ -77,7 +77,7 @@ pipeline {
 		        '''
 		    }
 		}
-		
+		  
         stage('Rolling Deploy') {
             steps {
                 sh '''
