@@ -60,13 +60,24 @@ pipeline {
             }
         }
         
-		stage('Copy Compose File') {
+		stage('Copy Deploy Files') {
 		    steps {
 		        sh '''
+		            mkdir -p ${APP_DIR}/nginx
+		
 		            cp docker-compose.yml ${APP_DIR}/docker-compose.yml
+		            cp .env ${APP_DIR}/.env
+		            cp nginx/default.conf ${APP_DIR}/nginx/default.conf
+		
+		            chmod 600 ${APP_DIR}/.env
+		
+		            echo "===== 배포 파일 확인 ====="
+		            ls -la ${APP_DIR}
+		            ls -la ${APP_DIR}/nginx
 		        '''
 		    }
 		}
+		
         stage('Rolling Deploy') {
             steps {
                 sh '''
