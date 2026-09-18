@@ -36,6 +36,8 @@ pipeline {
 						echo "LOCAL_DB_URL=${DB_URL}" >> .env
 						echo "DB_USERNAME=${DB_USERNAME}" >> .env
 						echo "DB_PASSWORD=${DB_PASSWORD}" >> .env
+						
+						chmod 600 .env
 					   '''
 				}
 			}
