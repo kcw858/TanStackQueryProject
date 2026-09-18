@@ -5,13 +5,13 @@ services:
   app:
     image: react-app:latest
     restart: always
-
+    env_file:
+      - .env
     environment:
       SPRING_PROFILES_ACTIVE: prod
 
     expose:
       - "8080"
-
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/actuator/health"]
       interval: 10s
