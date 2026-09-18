@@ -51,7 +51,7 @@ pipeline {
                 '''
             }
         }
-
+		
         stage('Docker Build') {
             steps {
                 sh '''
@@ -59,7 +59,14 @@ pipeline {
                 '''
             }
         }
-
+        
+		stage('Copy Compose File') {
+		    steps {
+		        sh '''
+		            cp docker-compose.yml ${APP_DIR}/docker-compose.yml
+		        '''
+		    }
+		}
         stage('Rolling Deploy') {
             steps {
                 sh '''
