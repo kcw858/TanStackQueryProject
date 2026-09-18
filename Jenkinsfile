@@ -71,7 +71,7 @@ pipeline {
 		
 		            chmod 600 ${APP_DIR}/.env
 		
-		            echo "===== 배포 파일 확인 ====="
+		            echo "===== 배포 파일 확인 ======"
 		            ls -la ${APP_DIR}
 		            ls -la ${APP_DIR}/nginx
 		        '''
