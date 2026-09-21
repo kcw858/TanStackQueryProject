@@ -226,7 +226,9 @@ chmod 600 ${EC2_APP_DIR}/.env
 
                         ssh -o StrictHostKeyChecking=no \
                             ${EC2_USER}@${EC2_HOST} << EOF
-
+                            
+							set -e
+							
                             echo "======================================"
                             echo " EC2 접속 성공"
                             echo "======================================"
